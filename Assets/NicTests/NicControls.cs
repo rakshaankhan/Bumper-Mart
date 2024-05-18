@@ -4,11 +4,7 @@ using UnityEngine;
 public class NicControls : MonoBehaviour
 {
 
-    ///
-    ///DONT USE THESE MOVEMENT CONTROLS
-    ///
- 
-
+    /////////// DONT USE THESE MOVEMENT CONTROLS ///////////
     public float moveSpeed = 5f;
     void Update()
     {
@@ -29,16 +25,15 @@ public class NicControls : MonoBehaviour
 
 
 
-    /// 
-    /// THIS IS HANDLING THE BOUNCE EFFECT
-    ///
-
+   
+    ///////// THIS IS HANDLING THE BOUNCE EFFECT /////////
 
     public float bounceOffset = 0.5f;
     public float bounceDuration = 1f;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // Currently set only to trigger against "Isle" tag
         if (collision.gameObject.tag == "Isle")
         {
             // Calculate bounce direction
@@ -47,12 +42,11 @@ public class NicControls : MonoBehaviour
             // Bounce away from collision
             transform.position -= (Vector3)(bounceDirection * bounceOffset);
 
-            
             StartCoroutine(HandleBounce());
         }
     }
 
-
+    // Add this bool to the update section of player controller (WASD)
     private bool canMove = true;
 
     IEnumerator HandleBounce()
