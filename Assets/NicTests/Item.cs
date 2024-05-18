@@ -17,7 +17,7 @@ public enum ItemType
 }
 
 [System.Serializable]
-public class Item : MonoBehaviour
+public class Item
 {
     public ItemType itemType;
     public string itemName;

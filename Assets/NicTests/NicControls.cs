@@ -3,6 +3,20 @@ using UnityEngine;
 
 public class NicControls : MonoBehaviour
 {
+    private InventoryManager inventoryManager;
+
+    private void Start()
+    {
+        if (inventoryManager == null)
+        {
+            inventoryManager = FindObjectOfType<InventoryManager>();
+
+            if (inventoryManager == null)
+            {
+                Debug.LogError("InventoryManager not found!");
+            }
+        }
+    }
 
     /////////// DONT USE THESE MOVEMENT CONTROLS ///////////
     public float moveSpeed = 5f;
@@ -34,7 +48,7 @@ public class NicControls : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Currently set only to trigger against "Isle" tag
-        if (collision.gameObject.tag == "Isle")
+        if (collision.gameObject.tag == "Shelf")
         {
             // Calculate bounce direction
             Vector2 bounceDirection = -collision.contacts[0].normal;
@@ -43,6 +57,16 @@ public class NicControls : MonoBehaviour
             transform.position -= (Vector3)(bounceDirection * bounceOffset);
 
             StartCoroutine(HandleBounce());
+
+
+            Shelf shelf = collision.gameObject.GetComponent<Shelf>();
+            if (shelf != null)
+            {
+                ItemType itemType = shelf.GetItemType();
+                inventoryManager.AddItem(new Item(itemType, itemType.ToString(), null, 1));  // Adjust as needed
+                inventoryManager.MarkItemCollected(itemType);  // Notify UI
+
+            }
         }
     }
 

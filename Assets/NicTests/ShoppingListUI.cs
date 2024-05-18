@@ -28,22 +28,18 @@ public class ShoppingListUI : MonoBehaviour
 
     private void Start()
     {
-        // not used right now
-        if (inventoryManager == null)
-        {
-            inventoryManager = FindObjectOfType<InventoryManager>();
-        }
 
-        ////////////////////////////////////
-        /////////////////////////////////////
-        // THESE ARE THE ITEMS ON THE LIST FOR LEVEL 1(ADJUSTABLE)
-        List<ItemType> level1Items = GetRandomItems(4);
+
+        /////// THESE ARE TEST ITEMS ON THE LIST //////
+        List<ItemType> level1Items = new List<ItemType> { ItemType.Apple, ItemType.Cheese, ItemType.Battery, ItemType.Hammer };
+
+        /////// THIS IS THE RANDOM 4 Items ///////
+        //List<ItemType> level1Items = GetRandomItems(4);
+
         SetShoppingList(level1Items);
-        ////////////////////////////////////
-        ///////////////////////////////////////
     }
 
-    // Call this to make the new shopping list!
+    // Call this to make the new shopping list
     public void SetShoppingList(List<ItemType> items)
     {
         // Clear existing prefab to allow new set of shopping list for each level
@@ -66,16 +62,40 @@ public class ShoppingListUI : MonoBehaviour
 
             itemIcon.sprite = GetItemIcon(item);
             shoppingListItems[item] = listItem;
+
+            Debug.Log("Added item to shopping list: " + item + " with GameObject: " + listItem.name);
+
+        }
+
+        Debug.Log("Current shopping list items in dictionary:");
+        foreach (var kvp in shoppingListItems)
+        {
+            Debug.Log("Item: " + kvp.Key + ", GameObject: " + (kvp.Value != null ? kvp.Value.name : "null"));
         }
     }
 
-    // THIS IS NOT USED YET //
     public void MarkItemCollected(ItemType item)
     {
         if (shoppingListItems.ContainsKey(item))
         {
             GameObject listItem = shoppingListItems[item];
+            if (listItem != null)
+            {
+                Debug.Log("Removing item from UI: " + listItem.name);
 
+                shoppingListItems.Remove(item);
+                Destroy(listItem);
+
+                Debug.Log("Item removed from UI: " + item.ToString());
+            }
+            else
+            {
+                Debug.LogWarning("List item GameObject is null for item: " + item.ToString());
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Item not found in shopping list: " + item.ToString());
         }
     }
 

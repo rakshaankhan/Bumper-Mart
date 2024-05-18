@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-////////////// THIS IS NOT BEING USED YET /////////////////////
 
 
 public class InventoryManager : MonoBehaviour
@@ -14,16 +13,11 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         shoppingListUI = FindObjectOfType<ShoppingListUI>();
-        if (shoppingListUI == null)
-        {
-            Debug.LogError("ShoppingListUI not found!");
-        }
+
     }
 
     public void SetShoppingList(List<ItemType> items)
     {
-        Debug.Log("Setting shopping list in InventoryManager");
-
         shoppingList = items;
         shoppingListUI.SetShoppingList(items);
     }
@@ -31,7 +25,15 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(Item item)
     {
         inventoryItems.Add(item);
-        shoppingListUI.MarkItemCollected(item.itemType);
+        Debug.Log("Adding item from UI: " + item.itemName);
+
+        Debug.Log("Items collected: " + inventoryItems.Count);
+
+    }
+
+    public void MarkItemCollected(ItemType itemType)
+    {
+        shoppingListUI.MarkItemCollected(itemType);
     }
 
     public void ClearInventory()
