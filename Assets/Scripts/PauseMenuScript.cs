@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// using UnityEngine.SceneManager;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
@@ -51,7 +51,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         Debug.Log("Going to Main Menu");
-        //TODO: SceneManager.LoadScene("MainMenu") or SceneManager.LoadScene(#)
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Options()
