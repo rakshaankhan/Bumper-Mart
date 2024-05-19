@@ -6,44 +6,50 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    private List<Item> inventoryItems = new List<Item>();
+    
+    private List<Item> inventoryItems = new List<Item>(); // The list of items in player inventory //
     private ShoppingListUI shoppingListUI;
-    private List<ItemType> shoppingList;
 
     private void Start()
     {
         shoppingListUI = FindObjectOfType<ShoppingListUI>();
-
     }
 
-    public void SetShoppingList(List<ItemType> items)
-    {
-        shoppingList = items;
-        shoppingListUI.SetShoppingList(items);
-    }
 
+    ///////////// METHOD TO ADD AN ITEM TO THE INVENTORY //////////////////
     public void AddItem(Item item)
     {
         inventoryItems.Add(item);
-        Debug.Log("Adding item from UI: " + item.itemName);
 
-        Debug.Log("Items collected: " + inventoryItems.Count);
+        // Build a single string with all item names
+        string inventoryContents = "Currently holding: ";
+        foreach (Item items in inventoryItems)
+        {
+            inventoryContents += items.itemName + ", ";
+        }
 
+        // Print the entire inventory in one log statement
+        Debug.Log(inventoryContents.TrimEnd(',', ' '));
     }
+
+
+    /////////////////// CHECKS FOR A SPECIFIC ITEM ///////////////
+    public bool HasItem(ItemType itemType)
+    {
+        foreach (Item item in inventoryItems)
+        {
+            if (item.itemType == itemType)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     public void MarkItemCollected(ItemType itemType)
     {
         shoppingListUI.MarkItemCollected(itemType);
-    }
-
-    public void ClearInventory()
-    {
-        inventoryItems.Clear();
-        shoppingListUI.SetShoppingList(shoppingList);
-    }
-
-    public List<Item> GetInventoryItems()
-    {
-        return inventoryItems;
     }
 }
