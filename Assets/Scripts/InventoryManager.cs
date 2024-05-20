@@ -7,7 +7,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     
-    private List<Item> inventoryItems = new List<Item>(); // The list of items in player inventory //
+    public List<Item> inventoryItems = new List<Item>(); // The list of items in player inventory //
     private ShoppingListUI shoppingListUI;
 
     private void Start()

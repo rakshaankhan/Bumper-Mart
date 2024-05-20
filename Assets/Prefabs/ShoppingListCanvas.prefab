@@ -152,7 +152,7 @@ Canvas:
   m_GameObject: {fileID: 7721867474411136971}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -164,7 +164,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!114 &1925565721302663417
 MonoBehaviour:
@@ -219,9 +219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoppingListPanel: {fileID: 7984885173679488418}
-  shoppingListItemPrefab: {fileID: 2743306132373707779, guid: 22f308f89899b08419356f4d49748003, type: 3}
+  shoppingListItemPrefab: {fileID: 1363122546856133476}
   appleSprite: {fileID: 21300000, guid: 63ea356033579e9408e46c6d9edee12e, type: 3}
-  cheeseSprite: {fileID: 21300000, guid: cd8f63c32041773498b802d4c1765e35, type: 3}
+  cheeseSprite: {fileID: 21300000, guid: 0aa1b553983cb3648b2caa630684a09e, type: 3}
   Bottle_of_Cola: {fileID: 0}
   Turkey_Leg: {fileID: 0}
   batterySprite: {fileID: 21300000, guid: e5d7340b07f5a594f9e2c0c577e08f62, type: 3}
@@ -329,6 +329,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22f308f89899b08419356f4d49748003, type: 3}
+--- !u!1 &1363122546856133476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2743306132373707779, guid: 22f308f89899b08419356f4d49748003, type: 3}
+  m_PrefabInstance: {fileID: 3817054531744079719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7368870396531053594 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5961528174671465341, guid: 22f308f89899b08419356f4d49748003, type: 3}
