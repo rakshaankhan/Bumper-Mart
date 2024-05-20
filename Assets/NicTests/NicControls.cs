@@ -18,21 +18,19 @@ public class NicControls : MonoBehaviour
         }
     }
 
-    /////////// DONT USE THESE MOVEMENT CONTROLS ///////////
-    public float moveSpeed = 5f;
+    /////////// DONT USE THESE MOVEMENT CONTROLS /////////// 
+    public float m_speed = 10.0f;
+    public float m_rotationspeed = 90.0f;
     void Update()
     {
         if (canMove)
         {
-            // Get raw input from WASD keys
-            float moveX = Input.GetAxisRaw("Horizontal");
-            float moveY = Input.GetAxisRaw("Vertical");
+            float m_vertialInput = Input.GetAxis("Vertical");
+            float m_horizontalInput = Input.GetAxis("Horizontal");
 
-            // Create a new movement vector
-            Vector2 movement = new Vector2(moveX, moveY).normalized;
+            transform.Translate(Vector3.up * Time.deltaTime * m_speed * m_vertialInput);
+            transform.Rotate(Vector3.back, Time.deltaTime * m_rotationspeed * m_horizontalInput);
 
-            // Move the player
-            transform.Translate(movement * moveSpeed * Time.deltaTime);
         }
     }
 
@@ -40,39 +38,43 @@ public class NicControls : MonoBehaviour
 
 
    
-    ///////// THIS IS HANDLING THE BOUNCE EFFECT /////////
+    //////////////// COLLISION BEHAVIORS ////////////////
 
     public float bounceOffset = 0.5f;
-    public float bounceDuration = 1f;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Currently set only to trigger against "Isle" tag
+        
+        // Currently set only to trigger against "Shelf" tag
         if (collision.gameObject.tag == "Shelf")
         {
-            // Calculate bounce direction
+
+            ////////////// BOUNCE EFFECT ////////////////
             Vector2 bounceDirection = -collision.contacts[0].normal;
-
-            // Bounce away from collision
             transform.position -= (Vector3)(bounceDirection * bounceOffset);
-
             StartCoroutine(HandleBounce());
 
+
+
+            //////////////// PLAYER BUMPING INTO ITEMS CODE /////////////////
 
             Shelf shelf = collision.gameObject.GetComponent<Shelf>();
             if (shelf != null)
             {
-                ItemType itemType = shelf.GetItemType();
-                inventoryManager.AddItem(new Item(itemType, itemType.ToString(), null, 1));  // Adjust as needed
-                inventoryManager.MarkItemCollected(itemType);  // Notify UI
+                ItemType itemType = shelf.GetItemType(); // get the type of item that is attached to that shelf
+                inventoryManager.AddItem(new Item(itemType, itemType.ToString(), null, 1)); // adding item properties to the inventory manager
+                inventoryManager.MarkItemCollected(itemType);  // Notify UI of new item
 
             }
         }
     }
 
-    // Add this bool to the update section of player controller (WASD)
-    private bool canMove = true;
 
+
+
+    ////////////// BOUNCE EFFECT ////////////////
+    private bool canMove = true; // add this bool to an if statement to stop player from moving for 1 second
+    public float bounceDuration = 1f;
     IEnumerator HandleBounce()
     {
         canMove = false;
@@ -83,4 +85,5 @@ public class NicControls : MonoBehaviour
 
         canMove = true;
     }
+
 }

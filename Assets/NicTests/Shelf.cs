@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Shelf : MonoBehaviour
 {
+    // assign the item type for each shelf in the inspector
     public ItemType itemType;
-    public Sprite itemIcon;
 
 
-
-    // This method will be called by the PlayerController on collision
+    // This method tells us what type of item is assigned to each shelf
+    // It is called on player controller
     public ItemType GetItemType()
     {
         return itemType;
