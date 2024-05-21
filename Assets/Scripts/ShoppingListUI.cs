@@ -7,9 +7,9 @@ public class ShoppingListUI : MonoBehaviour
     public Transform shoppingListPanel;
     public GameObject shoppingListItemPrefab;
     private InventoryManager inventoryManager;
-    private Final finalScript;
-    private List<GameObject> instantiatedItems = new List<GameObject>();
+    private GameManager gameManager;
 
+    private List<GameObject> instantiatedItems = new List<GameObject>();
 
     // Sprites for each item type 
     public Sprite carrotSprite;
@@ -21,17 +21,14 @@ public class ShoppingListUI : MonoBehaviour
     public Sprite onionSprite;
     public Sprite soda_1;
     public Sprite soda_2;
-    public Sprite Watermelon;
-    public Sprite Cactus;
+    public Sprite watermelonSprite;
+    public Sprite cactusSprite;
     public Sprite defaultSprite;
-
 
     private Dictionary<ItemType, GameObject> shoppingListItems = new Dictionary<ItemType, GameObject>();
 
     private void Start()
     {
-        finalScript = FindObjectOfType<Final>();
-
         if (inventoryManager == null)
         {
             inventoryManager = FindObjectOfType<InventoryManager>();
@@ -43,64 +40,66 @@ public class ShoppingListUI : MonoBehaviour
             }
         }
 
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
 
-        /////// THESE ARE TEST ITEMS ON THE LIST //////
+            if (gameManager == null)
+            {
+                Debug.LogError("GameManager not found!");
+                return;
+            }
+        }
+
+        // Test items for the shopping list
         List<ItemType> level1Items = new List<ItemType> { ItemType.Grape, ItemType.Cheese, ItemType.CerealBox, ItemType.Watermelon };
 
-        /////// THESE ARE THE RANDOM 4 ITEMS ON THE LIST ///////
-        //List<ItemType> level1Items = GetRandomItems(4);
+        // Random items for the shopping list
+        // List<ItemType> level1Items = GetRandomItems(4);
 
         SetShoppingList(level1Items); // Call this to instantiate the new shopping list
     }
 
-
     public void SetShoppingList(List<ItemType> items)
     {
-        // Clear existing prefab to allow new set of shopping list for each level
+        // Clear existing prefab to allow a new set of shopping lists for each level
         foreach (Transform child in shoppingListPanel)
         {
             Destroy(child.gameObject);
         }
+        instantiatedItems.Clear();
         shoppingListItems.Clear();
-
-
 
         // Instantiate a list of new items inside the shopping list panel with their corresponding images
         foreach (ItemType item in items)
         {
-
             GameObject listItem = Instantiate(shoppingListItemPrefab, shoppingListPanel); // creating each object for the shopping list
             listItem.name = (item.ToString() + " Icon"); // naming each item
-            
 
             Image itemIcon = listItem.GetComponentInChildren<Image>();
             itemIcon.enabled = true;
-
             itemIcon.sprite = GetItemIcon(item); // adding the correct icon to each item
+
+            instantiatedItems.Add(listItem);
             shoppingListItems[item] = listItem;
 
             Debug.Log("Added item to shopping list: " + item + " with GameObject name: " + listItem.name);
         }
-
-        finalScript.InitializeItems(instantiatedItems.ToArray());
-
     }
 
-
-
-    //////////////////// USED TO UPDATE THE SHOPPING LIST UI //////////////////////
     public void MarkItemCollected(ItemType item) // "item" here is what item/shelf that the player bumped into
     {
-        if (shoppingListItems.ContainsKey(item)) 
+        if (shoppingListItems.ContainsKey(item))
         {
-            GameObject listItem = shoppingListItems[item]; 
+            GameObject listItem = shoppingListItems[item];
 
             if (listItem != null)
             {
                 if (inventoryManager.HasItem(item)) // checks if item is in inventory or not
                 {
                     shoppingListItems.Remove(item);
-                    listItem.SetActive(false); // CURRENTLY DISABLING THE GAME OBJECT TO SHOW THAT PLAYER GOT AN ITEM OFF THE LIST
+                    listItem.SetActive(false); // Disable the game object to show that the player got an item off the list
+                    Debug.Log("Marked item as collected: " + item);
                 }
             }
             else
@@ -114,10 +113,6 @@ public class ShoppingListUI : MonoBehaviour
         }
     }
 
-
-
-    // This gets the correct image attached the their respective itemType
-    // It is used in SetShoppingList, when the list is instantiated for each level
     private Sprite GetItemIcon(ItemType itemType)
     {
         switch (itemType)
@@ -141,17 +136,14 @@ public class ShoppingListUI : MonoBehaviour
             case ItemType.Soda_2:
                 return soda_2;
             case ItemType.Watermelon:
-                return Watermelon;
+                return watermelonSprite;
             case ItemType.Cactus:
-                return Cactus;
+                return cactusSprite;
             default:
                 return defaultSprite; // Fallback sprite if none is found
         }
     }
 
-
-
-    /////////// This is the mehod to get a random item from our Item enum list ////////////
     private List<ItemType> GetRandomItems(int count)
     {
         System.Array itemTypeValues = System.Enum.GetValues(typeof(ItemType));
