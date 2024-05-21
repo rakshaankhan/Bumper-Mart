@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Final : MonoBehaviour
 {
-    private GameObject[] items; // Array to hold all items to be collected
     public GameObject cashierCounter; // The cashier counter GameObject
 
-    private bool[] itemsCollected; // Array to keep track of collected items
     private InventoryManager inventoryManager;
 
     void Start()
@@ -19,21 +17,15 @@ public class Final : MonoBehaviour
         }
     }
 
-    public void InitializeItems(GameObject[] collectedItems)
-    {
-        items = collectedItems;
-    }
-
     // Check if all items have been collected
     public bool AllItemsCollected()
     {
-        foreach (GameObject item in items)
+        foreach (ItemType requiredItem in inventoryManager.shoppingListItems)
         {
-            ItemType itemType = item.GetComponent<Shelf>().GetItemType();
             bool itemFound = false;
             foreach (Item inventoryItem in inventoryManager.inventoryItems)
             {
-                if (inventoryItem.itemType == itemType)
+                if (inventoryItem.itemType == requiredItem)
                 {
                     itemFound = true;
                     break;
@@ -46,6 +38,7 @@ public class Final : MonoBehaviour
         }
         return true;
     }
+
     // Method to call when the game is finished
     public void FinishGame()
     {
