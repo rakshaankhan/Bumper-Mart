@@ -3292,6 +3292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700af1966d0a72a4d87a849b377e6c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potentialItems: []
+  inventoryItems: []
+  shoppingListItems: 
 --- !u!4 &1159083239
 Transform:
   m_ObjectHideFlags: 0

@@ -7,8 +7,6 @@ public class ShoppingListUI : MonoBehaviour
     public Transform shoppingListPanel;
     public GameObject shoppingListItemPrefab;
     private InventoryManager inventoryManager;
-    private Final finalScript;
-    private List<GameObject> instantiatedItems = new List<GameObject>();
 
 
     // Sprites for each item type 
@@ -30,18 +28,10 @@ public class ShoppingListUI : MonoBehaviour
 
     private void Start()
     {
-        finalScript = FindObjectOfType<Final>();
 
-        if (inventoryManager == null)
-        {
-            inventoryManager = FindObjectOfType<InventoryManager>();
 
-            if (inventoryManager == null)
-            {
-                Debug.LogError("InventoryManager not found!");
-                return;
-            }
-        }
+        inventoryManager = FindObjectOfType<InventoryManager>();
+
 
 
         /////// THESE ARE TEST ITEMS ON THE LIST //////
@@ -51,6 +41,7 @@ public class ShoppingListUI : MonoBehaviour
         //List<ItemType> level1Items = GetRandomItems(4);
 
         SetShoppingList(level1Items); // Call this to instantiate the new shopping list
+        inventoryManager.SetShoppingList(level1Items);
     }
 
 
@@ -81,8 +72,6 @@ public class ShoppingListUI : MonoBehaviour
 
             Debug.Log("Added item to shopping list: " + item + " with GameObject name: " + listItem.name);
         }
-
-        finalScript.InitializeItems(instantiatedItems.ToArray());
 
     }
 
