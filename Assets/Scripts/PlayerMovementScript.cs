@@ -9,7 +9,7 @@ public class PlayerMovementScript : MonoBehaviour
     public float m_rotationspeed = 90.0f;
 
     private InventoryManager inventoryManager;
-    private Final finalScript;
+    private GameObject CashierCounter;
 
 
     void Start()
@@ -24,7 +24,7 @@ public class PlayerMovementScript : MonoBehaviour
             }
         }
 
-        finalScript = FindObjectOfType<Final>();
+        gameManager = FindObjectOfType<GameManager>();
 
     }
 
@@ -80,14 +80,6 @@ public class PlayerMovementScript : MonoBehaviour
         transform.position -= (Vector3)(bounceDirection * bounceOffset);
         StartCoroutine(HandleBounce());
 
-        if (finalScript.AllItemsCollected())
-        {
-            finalScript.FinishGame();
-        }
-        else
-        {
-            Debug.Log("You need to collect all items before checking out!");
-        }
 
     }
 
@@ -104,4 +96,26 @@ public class PlayerMovementScript : MonoBehaviour
 
         canMove = true;
     }
+
+
+    private GameManager gameManager;
+
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (gameManager.collectibles.Contains(other.gameObject))
+        {
+            gameManager.CollectItem(other.gameObject);
+            Destroy(other.gameObject); // Optional: Destroy the collected item
+
+            
+        } 
+        else
+        {
+            gameManager.EndGame();
+        
+                        
+        
+        }
 }
+    }
