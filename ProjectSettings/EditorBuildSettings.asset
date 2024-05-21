@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tester/FailedEndScreenScene.unity
     guid: 3283623a576101bd186cf966c49d4baa
+  - enabled: 1
+    path: Assets/Scenes/Tester/Credits.unity
+    guid: 0d824736016de481e904d33568c6928e
   m_configObjects: {}
