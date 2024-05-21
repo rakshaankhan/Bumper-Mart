@@ -8,17 +8,18 @@ public class ShoppingListUI : MonoBehaviour
     public GameObject shoppingListItemPrefab;
     private InventoryManager inventoryManager;
 
+
     // Sprites for each item type 
-    public Sprite appleSprite;
+    public Sprite carrotSprite;
+    public Sprite cerealBoxSprite;
     public Sprite cheeseSprite;
-    public Sprite Bottle_of_Cola;
-    public Sprite Turkey_Leg;
-    public Sprite batterySprite;
-    public Sprite Tennis_Racket;
-    public Sprite hammerSprite;
-    public Sprite Trumpet;
-    public Sprite Traffic_Cone;
-    public Sprite Fire_Hydrant;
+    public Sprite crackerBoxSprite;
+    public Sprite grapeSprite;
+    public Sprite leekSprite;
+    public Sprite onionSprite;
+    public Sprite soda_1;
+    public Sprite soda_2;
+    public Sprite Watermelon;
     public Sprite Cactus;
     public Sprite defaultSprite;
 
@@ -28,25 +29,19 @@ public class ShoppingListUI : MonoBehaviour
     private void Start()
     {
 
-        if (inventoryManager == null)
-        {
-            inventoryManager = FindObjectOfType<InventoryManager>();
 
-            if (inventoryManager == null)
-            {
-                Debug.LogError("InventoryManager not found!");
-                return;
-            }
-        }
+        inventoryManager = FindObjectOfType<InventoryManager>();
+
 
 
         /////// THESE ARE TEST ITEMS ON THE LIST //////
-        List<ItemType> level1Items = new List<ItemType> { ItemType.Apple, ItemType.Cheese, ItemType.Battery, ItemType.Hammer };
+        List<ItemType> level1Items = new List<ItemType> { ItemType.Grape, ItemType.Cheese, ItemType.CerealBox, ItemType.Watermelon };
 
         /////// THESE ARE THE RANDOM 4 ITEMS ON THE LIST ///////
         //List<ItemType> level1Items = GetRandomItems(4);
 
         SetShoppingList(level1Items); // Call this to instantiate the new shopping list
+        inventoryManager.SetShoppingList(level1Items);
     }
 
 
@@ -67,14 +62,17 @@ public class ShoppingListUI : MonoBehaviour
 
             GameObject listItem = Instantiate(shoppingListItemPrefab, shoppingListPanel); // creating each object for the shopping list
             listItem.name = (item.ToString() + " Icon"); // naming each item
+            
 
-            Image itemIcon = listItem.GetComponentInChildren<Image>(); 
+            Image itemIcon = listItem.GetComponentInChildren<Image>();
+            itemIcon.enabled = true;
 
             itemIcon.sprite = GetItemIcon(item); // adding the correct icon to each item
             shoppingListItems[item] = listItem;
 
             Debug.Log("Added item to shopping list: " + item + " with GameObject name: " + listItem.name);
         }
+
     }
 
 
@@ -113,26 +111,26 @@ public class ShoppingListUI : MonoBehaviour
     {
         switch (itemType)
         {
-            case ItemType.Apple:
-                return appleSprite;
+            case ItemType.Carrot:
+                return carrotSprite;
             case ItemType.Cheese:
                 return cheeseSprite;
-            case ItemType.Bottle_of_Cola:
-                return Bottle_of_Cola;
-            case ItemType.Turkey_Leg:
-                return Turkey_Leg;
-            case ItemType.Battery:
-                return batterySprite;
-            case ItemType.Tennis_Racket:
-                return Tennis_Racket;
-            case ItemType.Hammer:
-                return hammerSprite;
-            case ItemType.Trumpet:
-                return Trumpet;
-            case ItemType.Traffic_Cone:
-                return Traffic_Cone;
-            case ItemType.Fire_Hydrant:
-                return Fire_Hydrant;
+            case ItemType.CerealBox:
+                return cerealBoxSprite;
+            case ItemType.CrackerBox:
+                return crackerBoxSprite;
+            case ItemType.Grape:
+                return grapeSprite;
+            case ItemType.Leek:
+                return leekSprite;
+            case ItemType.Onion:
+                return onionSprite;
+            case ItemType.Soda_1:
+                return soda_1;
+            case ItemType.Soda_2:
+                return soda_2;
+            case ItemType.Watermelon:
+                return Watermelon;
             case ItemType.Cactus:
                 return Cactus;
             default:

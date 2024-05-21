@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Isle
   - Shelf
+  - Cashier
   layers:
   - Default
   - TransparentFX

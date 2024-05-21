@@ -2,16 +2,16 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Apple,
+    Carrot,
+    CerealBox,
     Cheese,
-    Bottle_of_Cola,
-    Turkey_Leg,
-    Battery,
-    Tennis_Racket,
-    Hammer,
-    Trumpet,
-    Traffic_Cone,
-    Fire_Hydrant,
+    CrackerBox,
+    Grape,
+    Leek,
+    Onion,
+    Soda_1,
+    Soda_2,
+    Watermelon,
     Cactus,
 
 }
