@@ -97,8 +97,15 @@ public class ShoppingListUI : MonoBehaviour
             {
                 if (inventoryManager.HasItem(item)) // checks if item is in inventory or not
                 {
+                    Image itemIcon = listItem.GetComponentInChildren<Image>();
+                    Color listItemOpacity = itemIcon.color;
+                    listItemOpacity.a = 1f;
+                    itemIcon.color = listItemOpacity; // added this to make the opacity 100% when the item is collected
+
                     shoppingListItems.Remove(item);
-                    listItem.SetActive(false); // Disable the game object to show that the player got an item off the list
+                    //listItem.SetActive(false); // Disable the game object to show that the player got an item off the list
+
+
                     Debug.Log("Marked item as collected: " + item);
                 }
             }
