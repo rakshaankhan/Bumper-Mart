@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
     public List<Item> potentialItems = new List<Item>(); // List of all possible items
     public List<Item> inventoryItems = new List<Item>(); // List of collected items
     public List<ItemType> shoppingListItems = new List<ItemType>(); // List of required items
+    public TextMeshProUGUI allItemsText;
 
     private ShoppingListUI shoppingListUI;
 
@@ -34,6 +36,17 @@ public class InventoryManager : MonoBehaviour
         }
 
         Debug.Log(inventoryContents.TrimEnd(',', ' '));
+
+        if (AllItemsCollected())
+        {
+            Debug.Log("Congratulations! You've collected all items and finished the game.");
+
+            allItemsText.enabled = true;
+        }
+        else
+        {
+            allItemsText.enabled = false;
+        }
     }
 
     public bool HasItem(ItemType itemType)
@@ -53,8 +66,33 @@ public class InventoryManager : MonoBehaviour
         shoppingListUI.MarkItemCollected(itemType);
     }
 
-    public List<Item> GetInventoryItems()
+    public bool AllItemsCollected()
     {
-        return inventoryItems;
+        HashSet<ItemType> requiredItemsSet = new HashSet<ItemType>(shoppingListItems);
+        HashSet<ItemType> collectedItemsSet = new HashSet<ItemType>();
+
+        foreach (Item inventoryItem in inventoryItems)
+        {
+            collectedItemsSet.Add(inventoryItem.itemType);
+        }
+
+        foreach (ItemType requiredItem in requiredItemsSet)
+        {
+            if (!collectedItemsSet.Contains(requiredItem))
+            {
+                Debug.Log("Item not found in inventory: " + requiredItem);
+                return false;
+            }
+        }
+
+        Debug.Log("All items collected!");
+        return true;
+
+    }
+
+    public void FinishGame()
+    {
+        Debug.Log("Congratulations! You've collected all items and finished the game.");
+        // Add any additional game completion logic here
     }
 }
