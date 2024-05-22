@@ -29,27 +29,9 @@ public class ShoppingListUI : MonoBehaviour
 
     private void Start()
     {
-        if (inventoryManager == null)
-        {
-            inventoryManager = FindObjectOfType<InventoryManager>();
+        gameManager = FindObjectOfType<GameManager>();
+        inventoryManager = FindObjectOfType<InventoryManager>();
 
-            if (inventoryManager == null)
-            {
-                Debug.LogError("InventoryManager not found!");
-                return;
-            }
-        }
-
-        if (gameManager == null)
-        {
-            gameManager = FindObjectOfType<GameManager>();
-
-            if (gameManager == null)
-            {
-                Debug.LogError("GameManager not found!");
-                return;
-            }
-        }
 
         // Test items for the shopping list
         List<ItemType> level1Items = new List<ItemType> { ItemType.Grape, ItemType.Cheese, ItemType.CerealBox, ItemType.Watermelon };
@@ -59,6 +41,12 @@ public class ShoppingListUI : MonoBehaviour
 
         SetShoppingList(level1Items); // Call this to instantiate the new shopping list
     }
+
+
+
+
+
+
 
     public void SetShoppingList(List<ItemType> items)
     {
@@ -87,6 +75,11 @@ public class ShoppingListUI : MonoBehaviour
         }
     }
 
+
+
+
+
+
     public void MarkItemCollected(ItemType item) // "item" here is what item/shelf that the player bumped into
     {
         if (shoppingListItems.ContainsKey(item))
@@ -97,8 +90,15 @@ public class ShoppingListUI : MonoBehaviour
             {
                 if (inventoryManager.HasItem(item)) // checks if item is in inventory or not
                 {
+                    Image itemIcon = listItem.GetComponentInChildren<Image>();
+                    Color listItemOpacity = itemIcon.color;
+                    listItemOpacity.a = 1f;
+                    itemIcon.color = listItemOpacity; // added this to make the opacity 100% when the item is collected
+
                     shoppingListItems.Remove(item);
-                    listItem.SetActive(false); // Disable the game object to show that the player got an item off the list
+                    //listItem.SetActive(false); // Disable the game object to show that the player got an item off the list
+
+
                     Debug.Log("Marked item as collected: " + item);
                 }
             }
