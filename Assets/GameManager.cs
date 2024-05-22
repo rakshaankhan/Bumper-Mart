@@ -82,13 +82,5 @@ public class GameManager : MonoBehaviour
             Debug.Log("You need to collect all items first!");
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (collision.gameObject == endGameObject)
-        {
-            EndGame();
-        }
-    }
    
 }
