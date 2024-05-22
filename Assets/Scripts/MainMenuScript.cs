@@ -19,8 +19,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void Credits()
     {
-        Debug.Log("Credits");
-        // SceneManager.LoadScene("");
+        SceneManager.LoadScene("Credits");
     }
 
     public void Exit()
