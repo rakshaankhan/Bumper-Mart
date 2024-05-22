@@ -9,7 +9,7 @@ public class PlayerMovementScript : MonoBehaviour
     public float m_rotationspeed = 90.0f;
 
     private InventoryManager inventoryManager;
-    private GameObject CashierCounter;
+    private GameManager gameManager;
 
 
     void Start()
@@ -44,47 +44,47 @@ public class PlayerMovementScript : MonoBehaviour
 
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (collision.gameObject.CompareTag("Shelf"))
+
+        if (gameManager.collectibles.Contains(other.gameObject))
         {
-            HandleShelfCollision(collision);
+            Debug.Log("Player bumped into: " + other.gameObject.name);
+            gameManager.CollectItem(other.gameObject);
+            // Destroy(other.gameObject); // Optional: Destroy the collected item when we make items drop
+
+
+            BounceEffect(other);
+
+
+            // Handles the UI invantory and shopping list for now
+            Shelf shelf = other.gameObject.GetComponent<Shelf>();
+            ItemType itemType = shelf.GetItemType();
+            inventoryManager.AddItem(new Item(itemType, itemType.ToString(), null, 1));
+            inventoryManager.MarkItemCollected(itemType);
+
         }
-        else if (collision.gameObject.CompareTag("Cashier"))
+        else if (other.gameObject.CompareTag("Cashier"))
         {
-            HandleCashierCounterCollision(collision);
+            BounceEffect(other);
+
+
+            gameManager.EndGame();
         }
     }
 
-    private void HandleShelfCollision(Collision2D collision)
-    {
-        // BOUNCE EFFECT
-        Vector2 bounceDirection = -collision.contacts[0].normal;
-        transform.position -= (Vector3)(bounceDirection * bounceOffset);
-        StartCoroutine(HandleBounce());
 
 
-        Shelf shelf = collision.gameObject.GetComponent<Shelf>();
-        if (shelf != null)
-        {
-            ItemType itemType = shelf.GetItemType(); // get the type of item that is attached to that shelf
-            inventoryManager.AddItem(new Item(itemType, itemType.ToString(), null, 1)); // adding item properties to the inventory manager
-            inventoryManager.MarkItemCollected(itemType);  // Notify UI of new item
-        }
-    }
-
-    private void HandleCashierCounterCollision(Collision2D collision)
-    {
-        // BOUNCE EFFECT
-        Vector2 bounceDirection = -collision.contacts[0].normal;
-        transform.position -= (Vector3)(bounceDirection * bounceOffset);
-        StartCoroutine(HandleBounce());
-
-
-    }
 
     ////////////// BOUNCE EFFECT ////////////////
-    private bool canMove = true; // add this bool to an if statement to stop player from moving for 1 second
+    public void BounceEffect(Collision2D collision)
+    {
+        Vector2 bounceDirection = -collision.contacts[0].normal;
+        transform.position -= (Vector3)(bounceDirection * bounceOffset);
+        StartCoroutine(HandleBounce());
+    }
+
+    private bool canMove = true; 
     public float bounceDuration = 1f;
     IEnumerator HandleBounce()
     {
@@ -96,26 +96,5 @@ public class PlayerMovementScript : MonoBehaviour
 
         canMove = true;
     }
-
-
-    private GameManager gameManager;
-
-    
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (gameManager.collectibles.Contains(other.gameObject))
-        {
-            gameManager.CollectItem(other.gameObject);
-            Destroy(other.gameObject); // Optional: Destroy the collected item
-
-            
-        } 
-        else
-        {
-            gameManager.EndGame();
-        
-                        
-        
-        }
 }
-    }
+

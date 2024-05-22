@@ -37,16 +37,16 @@ public class InventoryManager : MonoBehaviour
 
         Debug.Log(inventoryContents.TrimEnd(',', ' '));
 
-        if (AllItemsCollected())
-        {
-            Debug.Log("Congratulations! You've collected all items and finished the game.");
+        //if (AllItemsCollected())
+        //{
+        //    Debug.Log("Congratulations! You've collected all items and finished the game.");
 
-            allItemsText.enabled = true;
-        }
-        else
-        {
-            allItemsText.enabled = false;
-        }
+        //    allItemsText.enabled = true;
+        //}
+        //else
+        //{
+        //    allItemsText.enabled = false;
+        //}
     }
 
     public bool HasItem(ItemType itemType)
@@ -66,29 +66,29 @@ public class InventoryManager : MonoBehaviour
         shoppingListUI.MarkItemCollected(itemType);
     }
 
-    public bool AllItemsCollected()
-    {
-        HashSet<ItemType> requiredItemsSet = new HashSet<ItemType>(shoppingListItems);
-        HashSet<ItemType> collectedItemsSet = new HashSet<ItemType>();
+    //public bool AllItemsCollected()
+    //{
+    //    HashSet<ItemType> requiredItemsSet = new HashSet<ItemType>(shoppingListItems);
+    //    HashSet<ItemType> collectedItemsSet = new HashSet<ItemType>();
 
-        foreach (Item inventoryItem in inventoryItems)
-        {
-            collectedItemsSet.Add(inventoryItem.itemType);
-        }
+    //    foreach (Item inventoryItem in inventoryItems)
+    //    {
+    //        collectedItemsSet.Add(inventoryItem.itemType);
+    //    }
 
-        foreach (ItemType requiredItem in requiredItemsSet)
-        {
-            if (!collectedItemsSet.Contains(requiredItem))
-            {
-                Debug.Log("Item not found in inventory: " + requiredItem);
-                return false;
-            }
-        }
+    //    foreach (ItemType requiredItem in requiredItemsSet)
+    //    {
+    //        if (!collectedItemsSet.Contains(requiredItem))
+    //        {
+    //            Debug.Log("Item not found in inventory: " + requiredItem);
+    //            return false;
+    //        }
+    //    }
 
-        Debug.Log("All items collected!");
-        return true;
+    //    Debug.Log("All items collected!");
+    //    return true;
 
-    }
+    //}
 
     public void FinishGame()
     {

@@ -29,27 +29,9 @@ public class ShoppingListUI : MonoBehaviour
 
     private void Start()
     {
-        if (inventoryManager == null)
-        {
-            inventoryManager = FindObjectOfType<InventoryManager>();
+        gameManager = FindObjectOfType<GameManager>();
+        inventoryManager = FindObjectOfType<InventoryManager>();
 
-            if (inventoryManager == null)
-            {
-                Debug.LogError("InventoryManager not found!");
-                return;
-            }
-        }
-
-        if (gameManager == null)
-        {
-            gameManager = FindObjectOfType<GameManager>();
-
-            if (gameManager == null)
-            {
-                Debug.LogError("GameManager not found!");
-                return;
-            }
-        }
 
         // Test items for the shopping list
         List<ItemType> level1Items = new List<ItemType> { ItemType.Grape, ItemType.Cheese, ItemType.CerealBox, ItemType.Watermelon };
@@ -59,6 +41,12 @@ public class ShoppingListUI : MonoBehaviour
 
         SetShoppingList(level1Items); // Call this to instantiate the new shopping list
     }
+
+
+
+
+
+
 
     public void SetShoppingList(List<ItemType> items)
     {
@@ -86,6 +74,11 @@ public class ShoppingListUI : MonoBehaviour
             Debug.Log("Added item to shopping list: " + item + " with GameObject name: " + listItem.name);
         }
     }
+
+
+
+
+
 
     public void MarkItemCollected(ItemType item) // "item" here is what item/shelf that the player bumped into
     {

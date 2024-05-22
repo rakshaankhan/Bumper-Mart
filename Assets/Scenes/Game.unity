@@ -4202,6 +4202,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  allItemsCollectedText: {fileID: 1049983582}
 --- !u!4 &932971640
 Transform:
   m_ObjectHideFlags: 0
@@ -4694,7 +4695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1049983581
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10024,7 +10025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2503851279481997865, guid: 55b6ded1c43899b438ee74d85fffe573, type: 3}
       propertyPath: m_TagString
-      value: Finish
+      value: Cashier
       objectReference: {fileID: 0}
     - target: {fileID: 8579397160336381770, guid: 55b6ded1c43899b438ee74d85fffe573, type: 3}
       propertyPath: m_Sprite

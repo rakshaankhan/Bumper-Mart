@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("Event triggered when the game ends.")]
     public UnityEvent onGameEnd;
+
+    public TextMeshProUGUI allItemsCollectedText;
 
     private void Start()
     {
@@ -32,6 +35,9 @@ public class GameManager : MonoBehaviour
         {
             onGameEnd = new UnityEvent();
         }
+
+        allItemsCollectedText.enabled = false;
+
     }
 
     // Check if all items are collected
@@ -47,6 +53,17 @@ public class GameManager : MonoBehaviour
         {
             collectedItems.Add(item);
             Debug.Log($"Item collected: {item.name}");
+
+            if (AreAllItemsCollected())
+            {
+                allItemsCollectedText.enabled = true;
+                Debug.Log($"You have all items warning!!");
+
+            }
+            else
+            {
+                allItemsCollectedText.enabled = false;
+            }
         }
     }
 
@@ -55,7 +72,7 @@ public class GameManager : MonoBehaviour
     {
         if (AreAllItemsCollected())
         {
-            onGameEnd.Invoke();
+            //onGameEnd.Invoke(); took this off, it was causing a stackoverflow error
             Debug.Log("Game Over! All items collected.");
             // Implement your end game logic here (e.g., load a new scene, display a message, etc.)
             SceneManager.LoadScene(0);
