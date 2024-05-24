@@ -2389,6 +2389,11 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 175053230}
   m_Damping: 3.5
   m_MaxWindowSize: -1
+--- !u!1 &424902319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7384904592189870536, guid: c62551fe6255c114b9ded1227b9d0471, type: 3}
+  m_PrefabInstance: {fileID: 8282034873717739632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &448195801
 GameObject:
   m_ObjectHideFlags: 0
@@ -4460,6 +4465,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2212890640051546943, guid: 9426c01864bea394ba0f66de4fd5bdb7, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 1156283863}
+    - target: {fileID: 2212890640051546943, guid: 9426c01864bea394ba0f66de4fd5bdb7, type: 3}
+      propertyPath: brokenSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b02d47698b993547ad8dfbe62ee3a31, type: 3}
+    - target: {fileID: 2212890640051546943, guid: 9426c01864bea394ba0f66de4fd5bdb7, type: 3}
+      propertyPath: shakeDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212890640051546943, guid: 9426c01864bea394ba0f66de4fd5bdb7, type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 4748594476922954993, guid: 9426c01864bea394ba0f66de4fd5bdb7, type: 3}
       propertyPath: m_Size.x
       value: 0.63947606
@@ -4483,6 +4504,10 @@ PrefabInstance:
     - target: {fileID: 4748594476922954993, guid: 9426c01864bea394ba0f66de4fd5bdb7, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713370406436927680, guid: 9426c01864bea394ba0f66de4fd5bdb7, type: 3}
+      propertyPath: m_Name
+      value: Grape Icon
       objectReference: {fileID: 0}
     - target: {fileID: 6957972420016777070, guid: 9426c01864bea394ba0f66de4fd5bdb7, type: 3}
       propertyPath: m_Sprite
@@ -4744,6 +4769,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1038190776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 258969874367791058, guid: 4a1c07c82e4859a4cbefd16cd0032542, type: 3}
+  m_PrefabInstance: {fileID: 2002679982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1049983580
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,6 +5087,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1255724549795584588, guid: 55b6ded1c43899b438ee74d85fffe573, type: 3}
   m_PrefabInstance: {fileID: 8222466426501842191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1156283863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6713370406436927680, guid: 9426c01864bea394ba0f66de4fd5bdb7, type: 3}
+  m_PrefabInstance: {fileID: 985667577}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1159083237
 GameObject:
@@ -8193,6 +8228,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1796054802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5744080042771817355, guid: 4d7a47113995a6149835f75b78ae8e85, type: 3}
+  m_PrefabInstance: {fileID: 5697335505833525072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797857602
 GameObject:
   m_ObjectHideFlags: 0
@@ -8998,6 +9038,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1622861715}
     m_Modifications:
     - target: {fileID: 258969874367791058, guid: 4a1c07c82e4859a4cbefd16cd0032542, type: 3}
+      propertyPath: m_Name
+      value: Cheese Icon
+      objectReference: {fileID: 0}
+    - target: {fileID: 258969874367791058, guid: 4a1c07c82e4859a4cbefd16cd0032542, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -9120,6 +9164,22 @@ PrefabInstance:
     - target: {fileID: 5797137278724780825, guid: 4a1c07c82e4859a4cbefd16cd0032542, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632153298078716784, guid: 4a1c07c82e4859a4cbefd16cd0032542, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 1038190776}
+    - target: {fileID: 6632153298078716784, guid: 4a1c07c82e4859a4cbefd16cd0032542, type: 3}
+      propertyPath: brokenSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: df7d24005bcb68140a8fbdcae992907c, type: 3}
+    - target: {fileID: 6632153298078716784, guid: 4a1c07c82e4859a4cbefd16cd0032542, type: 3}
+      propertyPath: shakeDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632153298078716784, guid: 4a1c07c82e4859a4cbefd16cd0032542, type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9969,6 +10029,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.296
       objectReference: {fileID: 0}
+    - target: {fileID: 4005898175408138480, guid: 4d7a47113995a6149835f75b78ae8e85, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 1796054802}
+    - target: {fileID: 4005898175408138480, guid: 4d7a47113995a6149835f75b78ae8e85, type: 3}
+      propertyPath: brokenSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: df7d24005bcb68140a8fbdcae992907c, type: 3}
+    - target: {fileID: 4005898175408138480, guid: 4d7a47113995a6149835f75b78ae8e85, type: 3}
+      propertyPath: shakeDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005898175408138480, guid: 4d7a47113995a6149835f75b78ae8e85, type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 4056529015581374991, guid: 4d7a47113995a6149835f75b78ae8e85, type: 3}
       propertyPath: m_LocalScale.x
       value: 9.878039
@@ -10012,6 +10088,10 @@ PrefabInstance:
     - target: {fileID: 4056529015581374991, guid: 4d7a47113995a6149835f75b78ae8e85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5744080042771817355, guid: 4d7a47113995a6149835f75b78ae8e85, type: 3}
+      propertyPath: m_Name
+      value: CerealBox Icon
       objectReference: {fileID: 0}
     - target: {fileID: 5777186855223316664, guid: 4d7a47113995a6149835f75b78ae8e85, type: 3}
       propertyPath: m_Sprite
@@ -10195,6 +10275,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1622861715}
     m_Modifications:
+    - target: {fileID: 255178760561059795, guid: c62551fe6255c114b9ded1227b9d0471, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 424902319}
+    - target: {fileID: 255178760561059795, guid: c62551fe6255c114b9ded1227b9d0471, type: 3}
+      propertyPath: brokenSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b02d47698b993547ad8dfbe62ee3a31, type: 3}
+    - target: {fileID: 255178760561059795, guid: c62551fe6255c114b9ded1227b9d0471, type: 3}
+      propertyPath: shakeDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 255178760561059795, guid: c62551fe6255c114b9ded1227b9d0471, type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 515932233937544279, guid: c62551fe6255c114b9ded1227b9d0471, type: 3}
       propertyPath: m_Name
       value: Watermelon Shelf
@@ -10302,6 +10398,10 @@ PrefabInstance:
     - target: {fileID: 5797909022219077702, guid: c62551fe6255c114b9ded1227b9d0471, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384904592189870536, guid: c62551fe6255c114b9ded1227b9d0471, type: 3}
+      propertyPath: m_Name
+      value: Watermelon Icon
       objectReference: {fileID: 0}
     - target: {fileID: 7519629612124903103, guid: c62551fe6255c114b9ded1227b9d0471, type: 3}
       propertyPath: m_Size.x
