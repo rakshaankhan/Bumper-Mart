@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6957972420016777070}
   - component: {fileID: 4748594476922954993}
   - component: {fileID: 2212890640051546943}
+  - component: {fileID: 2960055302233777389}
   m_Layer: 0
   m_Name: Grape Shelf
   m_TagString: Shelf
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.5, y: 0.23, z: 0}
-  m_LocalScale: {x: 1.18, y: 17.876999, z: 1.18}
+  m_LocalScale: {x: 23.189022, y: 12.954362, z: 1.18}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 428534622271352752}
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6117647, g: 0.45882356, b: 0.8705883, a: 0.70980394}
+  m_Sprite: {fileID: 21300000, guid: 7fa225b119b71ed4b85552d15b9ae018, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,18 +120,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0049611926, y: 0.0000004172325}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.96}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.63947606, y: 0.92141175}
   m_EdgeRadius: 0
 --- !u!114 &2212890640051546943
 MonoBehaviour:
@@ -145,6 +146,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 4
+  icon: {fileID: 6713370406436927680}
+  brokenSprite: {fileID: 21300000, guid: 9b02d47698b993547ad8dfbe62ee3a31, type: 3}
+  shakeDuration: 0.1
+  shakeMagnitude: 0.15
+--- !u!114 &2960055302233777389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647235434456745885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &6713370406436927680
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +177,7 @@ GameObject:
   - component: {fileID: 428534622271352752}
   - component: {fileID: 7396248147807090796}
   m_Layer: 0
-  m_Name: Image Icon
+  m_Name: Grape Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,9 +191,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6713370406436927680}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.03, y: 0.025, z: 0}
-  m_LocalScale: {x: 0.22, y: 3.3330007, z: 3.3330007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00699, y: 0.197, z: 0}
+  m_LocalScale: {x: 0.45117602, y: 0.9177084, z: 3.3330007}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 899377472027372219}
