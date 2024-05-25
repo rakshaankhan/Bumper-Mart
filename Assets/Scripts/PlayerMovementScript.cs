@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerMovementScript : MonoBehaviour
 {
@@ -10,22 +12,14 @@ public class PlayerMovementScript : MonoBehaviour
 
     private InventoryManager inventoryManager;
     private GameManager gameManager;
+    private Shelf shelf;
 
 
     void Start()
     {
-        if (inventoryManager == null)
-        {
-            inventoryManager = FindObjectOfType<InventoryManager>();
 
-            if (inventoryManager == null)
-            {
-                Debug.LogError("InventoryManager not found!");
-            }
-        }
-
+        inventoryManager = FindObjectOfType<InventoryManager>();
         gameManager = FindObjectOfType<GameManager>();
-
     }
 
     void Update()
@@ -51,14 +45,18 @@ public class PlayerMovementScript : MonoBehaviour
         {
             Debug.Log("Player bumped into: " + other.gameObject.name);
             gameManager.CollectItem(other.gameObject);
-            // Destroy(other.gameObject); // Optional: Destroy the collected item when we make items drop
+
+
+            //targets the shelf that was collided with
+            Shelf shelf = other.gameObject.GetComponent<Shelf>(); 
+            shelf.DisableIcon();
+            shelf.BrokenSprite();
 
 
             BounceEffect(other);
 
 
             // Handles the UI invantory and shopping list for now
-            Shelf shelf = other.gameObject.GetComponent<Shelf>();
             ItemType itemType = shelf.GetItemType();
             inventoryManager.AddItem(new Item(itemType, itemType.ToString(), null, 1));
             inventoryManager.MarkItemCollected(itemType);
