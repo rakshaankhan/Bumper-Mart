@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4441648387912309650}
   - component: {fileID: 7519629612124903103}
   - component: {fileID: 255178760561059795}
+  - component: {fileID: 1117189916522776190}
   m_Layer: 0
   m_Name: Watermelon Shelf
   m_TagString: Shelf
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 2.5, y: 0.44, z: 0}
-  m_LocalScale: {x: 1, y: 15.73, z: 1}
+  m_LocalScale: {x: 24.057087, y: 15.453225, z: 0.98240465}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1193619594517756261}
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6117647, g: 0.9058824, b: 0.38823533, a: 0.5254902}
+  m_Sprite: {fileID: 21300000, guid: 7fa225b119b71ed4b85552d15b9ae018, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,18 +120,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.003889978, y: -0.008755237}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.96}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6499163, y: 0.92411834}
   m_EdgeRadius: 0
 --- !u!114 &255178760561059795
 MonoBehaviour:
@@ -145,6 +146,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 9
+  icon: {fileID: 7384904592189870536}
+  brokenSprite: {fileID: 21300000, guid: 9b02d47698b993547ad8dfbe62ee3a31, type: 3}
+  shakeDuration: 0.1
+  shakeMagnitude: 0.15
+--- !u!114 &1117189916522776190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515932233937544279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7384904592189870536
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +177,7 @@ GameObject:
   - component: {fileID: 1193619594517756261}
   - component: {fileID: 9063614384586481058}
   m_Layer: 0
-  m_Name: Image Icon
+  m_Name: Watermelon Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,9 +191,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7384904592189870536}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.005, z: 0}
-  m_LocalScale: {x: 0.21999998, y: 3.5259058, z: 0.81874764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.001, y: 0.2, z: 0}
+  m_LocalScale: {x: 0.5936605, y: 0.82591164, z: 0.81874764}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5797909022219077702}
