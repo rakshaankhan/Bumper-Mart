@@ -173,3 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 20
   m_rotationspeed: 45
+  bounceOffset: 0.5
+  bounceDuration: 1
