@@ -49,7 +49,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (gameManager.collectibles.Contains(other.gameObject))
         {
-            Debug.Log("Player bumped into: " + other.gameObject.name);
+            // Debug.Log("Player bumped into: " + other.gameObject.name);
             gameManager.CollectItem(other.gameObject);
 
 
@@ -75,13 +75,12 @@ public class PlayerMovementScript : MonoBehaviour
 
             gameManager.EndGame();
         }
-        Debug.Log("Enter collision");
-        if (gameObject.CompareTag("Player")
-        && other.gameObject.CompareTag("NPC"))
+        // Debug.Log("Enter collision");
+        if (gameObject.CompareTag("Player") && other.gameObject.CompareTag("NPC"))
         {
 
             Bump.Play();
-            Debug.Log(" Play Sound ");
+            // Debug.Log(" Play Sound ");
 
         }
     }
