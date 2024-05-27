@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class FailScreenScritp : MonoBehaviour
+public class FailScreenScript : MonoBehaviour
 {
     public void Restart()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Main Level");
     }
 
     public void ReturnToMainMenu()

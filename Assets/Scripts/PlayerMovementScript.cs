@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,13 +14,14 @@ public class PlayerMovementScript : MonoBehaviour
     private InventoryManager inventoryManager;
     private GameManager gameManager;
     private Shelf shelf;
-
+    private AudioSource Bump;
 
     void Start()
     {
 
         inventoryManager = FindObjectOfType<InventoryManager>();
         gameManager = FindObjectOfType<GameManager>();
+        Bump = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -32,7 +34,11 @@ public class PlayerMovementScript : MonoBehaviour
             transform.Translate(Vector3.up * Time.deltaTime * m_speed * m_vertialInput);
             transform.Rotate(Vector3.back, Time.deltaTime * m_rotationspeed * m_horizontalInput);
         }
+
+       
     }
+
+  
 
     public float bounceOffset = 0.5f;
 
@@ -68,6 +74,15 @@ public class PlayerMovementScript : MonoBehaviour
 
 
             gameManager.EndGame();
+        }
+        Debug.Log("Enter collision");
+        if (gameObject.CompareTag("Player")
+        && other.gameObject.CompareTag("NPC"))
+        {
+
+            Bump.Play();
+            Debug.Log(" Play Sound ");
+
         }
     }
 

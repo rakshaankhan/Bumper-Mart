@@ -28,7 +28,7 @@ public class TimerScript : MonoBehaviour
             m_timeChanged = 0;
             SceneManager.LoadScene("FailedEndScreenScene");
         }
-        m_TimerUI.GetComponent<TextMeshProUGUI>().text = "Time before parents get home: " + m_timeChanged;
-
+        // m_TimerUI.GetComponent<TextMeshProUGUI>().text = "Time before parents get home: " + m_timeChanged;
+        m_TimerUI.GetComponent<TextMeshProUGUI>().text = m_timeChanged.ToString();
     }
 }
