@@ -8,6 +8,7 @@ TagManager:
   - Shelf
   - Cashier
   - TimerUI
+  - NPC
   layers:
   - Default
   - TransparentFX
