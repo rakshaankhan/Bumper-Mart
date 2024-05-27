@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
             //onGameEnd.Invoke(); took this off, it was causing a stackoverflow error
             Debug.Log("Game Over! All items collected.");
             // Implement your end game logic here (e.g., load a new scene, display a message, etc.)
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("WinEndScene");
         }
         else
         {

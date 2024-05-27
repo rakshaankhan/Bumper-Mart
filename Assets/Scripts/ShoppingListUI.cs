@@ -25,6 +25,9 @@ public class ShoppingListUI : MonoBehaviour
     public Sprite cactusSprite;
     public Sprite defaultSprite;
 
+    //THIS IS FOR THE DEMO, PLEASE REMOVE ONCE LEVELS CAN BE RANDOMIZED
+    public int levelType = 0;
+
     private Dictionary<ItemType, GameObject> shoppingListItems = new Dictionary<ItemType, GameObject>();
 
     private void Start()
@@ -32,14 +35,22 @@ public class ShoppingListUI : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         inventoryManager = FindObjectOfType<InventoryManager>();
 
-
         // Test items for the shopping list
-        List<ItemType> level1Items = new List<ItemType> { ItemType.Grape, ItemType.Cheese, ItemType.CerealBox, ItemType.Watermelon };
+        List<ItemType> levelItems = new List<ItemType> { ItemType.Grape, ItemType.Cheese, ItemType.CerealBox, ItemType.Watermelon };
+
+        if (levelType == 0)
+        {
+            levelItems = new List<ItemType> { ItemType.Grape, ItemType.Cheese, ItemType.CerealBox, ItemType.Watermelon };
+        }
+        else 
+        {
+            levelItems = new List<ItemType> { ItemType.CrackerBox, ItemType.Onion, ItemType.Cactus, ItemType.Carrot };
+        }
 
         // Random items for the shopping list
         // List<ItemType> level1Items = GetRandomItems(4);
 
-        SetShoppingList(level1Items); // Call this to instantiate the new shopping list
+        SetShoppingList(levelItems); // Call this to instantiate the new shopping list
     }
 
 

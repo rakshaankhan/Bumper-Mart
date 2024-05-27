@@ -9,6 +9,7 @@ TagManager:
   - Cashier
   - TimerUI
   - NPC
+  - StoryInstructions
   layers:
   - Default
   - TransparentFX
