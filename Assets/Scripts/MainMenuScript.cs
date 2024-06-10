@@ -8,7 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
     public void Startgame()
     {
         Debug.Log("Starting Game");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void Options()

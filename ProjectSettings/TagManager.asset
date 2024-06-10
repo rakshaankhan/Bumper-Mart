@@ -10,6 +10,10 @@ TagManager:
   - TimerUI
   - NPC
   - StoryInstructions
+  - ShoppingListCanvas
+  - DontDestroy
+  - Player2
+  - Player1
   layers:
   - Default
   - TransparentFX

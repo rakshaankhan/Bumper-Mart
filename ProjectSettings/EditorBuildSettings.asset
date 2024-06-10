@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tester/MainMenu.unity
+    path: Assets/Scenes/AlphaGame/MainMenu.unity
     guid: ce83b4cd49804f0cca71fcd2a059d6b3
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/AlphaGame/Tutorial.unity
     guid: f296acb0061584749ae0488854352bb5
   - enabled: 1
-    path: Assets/Scenes/Tester/FailedEndScreenScene.unity
+    path: Assets/Scenes/AlphaGame/FailedEndScreenScene.unity
     guid: 3283623a576101bd186cf966c49d4baa
   - enabled: 1
-    path: Assets/Scenes/Tester/Credits.unity
+    path: Assets/Scenes/AlphaGame/Credits.unity
     guid: 0d824736016de481e904d33568c6928e
   - enabled: 1
-    path: Assets/Scenes/Main level.unity
+    path: Assets/Scenes/AlphaGame/Main level.unity
     guid: 706c0f2e9cf57d24f8e99c51e96ebb64
   - enabled: 1
-    path: Assets/Scenes/Tester/WinEndScene.unity
+    path: Assets/Scenes/AlphaGame/WinEndScene.unity
     guid: ede402062f6fd5491a680a94c4c197dc
   m_configObjects: {}

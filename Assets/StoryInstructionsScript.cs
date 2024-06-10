@@ -8,11 +8,13 @@ public class StoryInstructionsScript : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0.0f;
+        GameObject.FindWithTag("ShoppingListCanvas").GetComponent<Canvas>().enabled = false;
     }
 
     public void Play()
     {
         Time.timeScale = 1.0f;
+        GameObject.FindWithTag("ShoppingListCanvas").GetComponent<Canvas>().enabled = true;
         Destroy(GameObject.FindWithTag("StoryInstructions"));
     }
 }

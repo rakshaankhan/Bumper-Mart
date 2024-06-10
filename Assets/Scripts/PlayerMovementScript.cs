@@ -31,8 +31,15 @@ public class PlayerMovementScript : MonoBehaviour
             float m_vertialInput = Input.GetAxis("Vertical");
             float m_horizontalInput = Input.GetAxis("Horizontal");
 
-            transform.Translate(Vector3.up * Time.deltaTime * m_speed * m_vertialInput);
-            transform.Rotate(Vector3.back, Time.deltaTime * m_rotationspeed * m_horizontalInput);
+            GameObject.FindWithTag("Player1").transform.Translate(Vector3.up * Time.deltaTime * m_speed * m_vertialInput);
+            GameObject.FindWithTag("Player1").transform.Rotate(Vector3.back, Time.deltaTime * m_rotationspeed * m_horizontalInput);
+
+            float m_vertial2Input = Input.GetAxis("Vertical2");
+            float m_horizontal2Input = Input.GetAxis("Horizontal2");
+
+            GameObject.FindWithTag("Player2").transform.Translate(Vector3.up * Time.deltaTime * m_speed * m_vertial2Input);
+            GameObject.FindWithTag("Player2").transform.Rotate(Vector3.back, Time.deltaTime * m_rotationspeed * m_horizontal2Input);
+
         }
 
        
