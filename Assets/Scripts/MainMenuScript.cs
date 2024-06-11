@@ -5,16 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+
+    public GameObject options;
+
+    public AudioSource musicSlider;
+
+    void awake()
+    {
+        if(PlayerPrefs.HasKey("musicVolume"))
+        {
+            musicSlider.volume = PlayerPrefs.GetFloat("musicVolume");
+        }
+    }
+
     public void Startgame()
     {
-        Debug.Log("Starting Game");
         SceneManager.LoadScene("Tutorial");
     }
 
     public void Options()
     {
-        Debug.Log("Options");
-        // SceneManager.LoadScene("");
+        options.SetActive(true);
     }
 
     public void Credits()
@@ -24,7 +35,11 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Exiting");
         Application.Quit();
+    }
+
+    public void ReturnAndSave()
+    {
+        options.SetActive(false);
     }
 }

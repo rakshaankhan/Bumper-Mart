@@ -8,6 +8,8 @@ public class MainGameInfomation : MonoBehaviour
     public static int currentLevel = 0;
     public static int score = 0;
 
+    public static 
+
     void Awake()
     {
         DontDestroyOnLoad(GameObject.FindWithTag("DontDestroy"));
