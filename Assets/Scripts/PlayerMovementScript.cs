@@ -86,7 +86,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (gameObject.CompareTag("Player")
         && other.gameObject.CompareTag("NPC"))
         {
-
+            
             Bump.Play();
             Debug.Log(" Play Sound ");
 

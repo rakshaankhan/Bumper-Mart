@@ -247,7 +247,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X
+  m_text: Return To Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -274,8 +274,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.63
-  m_fontSizeBase: 45.63
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -360,8 +360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 466.32275, y: 384.29022}
-  m_SizeDelta: {x: 66.6456, y: 62.5165}
+  m_AnchoredPosition: {x: 722, y: -777}
+  m_SizeDelta: {x: 409.176, y: 71.252}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966581416
 MonoBehaviour:
@@ -492,8 +492,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.4233, y: -661}
-  m_SizeDelta: {x: 527.8143, y: 632.01}
+  m_AnchoredPosition: {x: 0.0000089407, y: -2117.9575}
+  m_SizeDelta: {x: 527.814, y: 2469.925}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1064133921
 MonoBehaviour:
@@ -529,8 +529,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Credits\n\nGame Producer\nSidret\n\nAsst. Producer \nAarti \n\nGame Designers\nSchlansky\nMalia
     Scott \nMelissa Cerrato\n\nLevel Designers\nJoseph \n\nGame Artist\nEric M\n\nProgrammers\nJoseph\nSkinny
-    P\nTakumi\nEmil\n\nMusic\nJoseph\n\nSFX\nJaeus\n\n\n\n\n\n\n\n\nThanks to the
-    P1 Games Community"
+    P\nTakumi\nEmil\n\nMusic\nJoseph\n\nSFX\nJaeus\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThanks
+    to the P1 Games Community"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -951.5917}
+  m_margin: {x: 0, y: 0, z: 0, w: -3.447875}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
