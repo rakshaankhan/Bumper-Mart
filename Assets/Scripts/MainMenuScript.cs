@@ -4,24 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class MainMenuScript : MonoBehaviour
 {
 
     public GameObject options;
     public GameObject mainMenuGO;
     public GameObject ExitText;
 
-    public AudioSource musicSlider;
+    public Slider musicSlider;
+    public AudioSource audioS;
 
     void Awake()
     {
         if(PlayerPrefs.HasKey("musicVolume"))
         {
-            musicSlider.volume = PlayerPrefs.GetFloat("musicVolume");
+            audioS.volume = PlayerPrefs.GetFloat("musicVolume");
         }
         if(PlayerPrefs.HasKey("musicTime"))
         {
-            musicSlider.time = PlayerPrefs.GetFloat("musicTime");
+            audioS.time = PlayerPrefs.GetFloat("musicTime");
         }
     }
 
@@ -33,12 +34,12 @@ public class NewBehaviourScript : MonoBehaviour
     public void Options()
     {
         options.SetActive(true);
-        PlayerPrefs.SetFloat("musicVolumePrev", musicSlider.volume);
+        PlayerPrefs.SetFloat("musicVolumePrev", audioS.volume);
     }
 
     public void Credits()
     {
-        PlayerPrefs.SetFloat("musicTime", musicSlider.time);
+        PlayerPrefs.SetFloat("musicTime", audioS.time);
         SceneManager.LoadScene("Credits");
     }
 
@@ -56,9 +57,9 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void ReturnWithoutSave()
     {
-        musicSlider.volume = PlayerPrefs.GetFloat("musicVolumePrev");
-        PlayerPrefs.SetFloat("musicVolume", musicSlider.volume);
-        GameObject.Find("MusicSlider").GetComponent<Slider>().value = musicSlider.volume;
+        audioS.volume = PlayerPrefs.GetFloat("musicVolumePrev");
+        PlayerPrefs.SetFloat("musicVolume", audioS.volume);
+        musicSlider.value = audioS.volume;
         options.SetActive(false);
     }
 }

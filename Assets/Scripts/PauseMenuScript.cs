@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
@@ -8,10 +9,17 @@ public class PauseMenuScript : MonoBehaviour
 
     public GameObject m_pausemenuUI;
 
+    public GameObject options;
+
+    public GameObject menuButtons;
+
+    public Slider musicSlider;
+    public AudioSource audioS;
+
     private bool m_isPaused = false;
 
-    // Start is called before the first frame update
-    void Start() { }
+    // // Start is called before the first frame update
+    // void Start() { }
 
     // Update is called once per frame
     void Update()
@@ -57,5 +65,23 @@ public class PauseMenuScript : MonoBehaviour
     public void Options()
     {
         Debug.Log("Opened Options page");
+        PlayerPrefs.SetFloat("musicVolumePrev", audioS.volume);
+        menuButtons.SetActive(false);
+        options.SetActive(true);
+    }
+
+    public void ReturnAndSave()
+    {
+        options.SetActive(false);
+        menuButtons.SetActive(true);
+    }
+
+    public void ReturnWithoutSave()
+    {
+        audioS.volume = PlayerPrefs.GetFloat("musicVolumePrev");
+        PlayerPrefs.SetFloat("musicVolume", audioS.volume);
+        musicSlider.value = audioS.volume;
+        options.SetActive(false);
+        menuButtons.SetActive(true);
     }
 }

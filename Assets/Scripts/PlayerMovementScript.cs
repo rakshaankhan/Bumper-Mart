@@ -31,14 +31,14 @@ public class PlayerMovementScript : MonoBehaviour
             float m_vertialInput = Input.GetAxis("Vertical");
             float m_horizontalInput = Input.GetAxis("Horizontal");
 
-            GameObject.FindWithTag("Player1").transform.Translate(Vector3.up * Time.deltaTime * m_speed * m_vertialInput);
-            GameObject.FindWithTag("Player1").transform.Rotate(Vector3.back, Time.deltaTime * m_rotationspeed * m_horizontalInput);
+            GameObject.FindWithTag("Player").transform.Translate(Vector3.up * Time.deltaTime * m_speed * m_vertialInput);
+            GameObject.FindWithTag("Player").transform.Rotate(Vector3.back, Time.deltaTime * m_rotationspeed * m_horizontalInput);
 
-            float m_vertial2Input = Input.GetAxis("Vertical2");
-            float m_horizontal2Input = Input.GetAxis("Horizontal2");
+            // float m_vertial2Input = Input.GetAxis("Vertical2");
+            // float m_horizontal2Input = Input.GetAxis("Horizontal2");
 
-            GameObject.FindWithTag("Player2").transform.Translate(Vector3.up * Time.deltaTime * m_speed * m_vertial2Input);
-            GameObject.FindWithTag("Player2").transform.Rotate(Vector3.back, Time.deltaTime * m_rotationspeed * m_horizontal2Input);
+            // GameObject.FindWithTag("Player2").transform.Translate(Vector3.up * Time.deltaTime * m_speed * m_vertial2Input);
+            // GameObject.FindWithTag("Player2").transform.Rotate(Vector3.back, Time.deltaTime * m_rotationspeed * m_horizontal2Input);
 
         }
 
@@ -86,7 +86,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (gameObject.CompareTag("Player")
         && other.gameObject.CompareTag("NPC"))
         {
-            
+
             Bump.Play();
             Debug.Log(" Play Sound ");
 
