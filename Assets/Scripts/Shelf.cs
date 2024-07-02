@@ -8,6 +8,9 @@ public class Shelf : MonoBehaviour
     public GameObject icon;     // attach the icon to each shelf to allow disabling
     public Sprite brokenSprite;
 
+    public bool isItemNeeded = true;
+
+    public bool isSpriteBroken = false;
 
     public float shakeDuration = 1.2f;
     public float shakeMagnitude = 2.1f;
@@ -15,12 +18,14 @@ public class Shelf : MonoBehaviour
     public void DisableIcon()
     {
         icon.SetActive(false);
-;    }
+    }
 
     public void BrokenSprite()
     {
         SpriteRenderer iconSpriteRenderer = GetComponent<SpriteRenderer>();
         iconSpriteRenderer.sprite = brokenSprite;
+
+        isSpriteBroken = true;
 
         StartCoroutine(Shake());
     }
@@ -51,6 +56,16 @@ public class Shelf : MonoBehaviour
     public ItemType GetItemType()
     {
         return itemType;
+    }
+
+    public bool GetIsItemNeeded()
+    {
+        return isItemNeeded;
+    }
+
+    public bool GetIsSpriteBroken()
+    {
+        return isSpriteBroken;
     }
 
 }

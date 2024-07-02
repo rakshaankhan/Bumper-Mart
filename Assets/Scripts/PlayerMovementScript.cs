@@ -53,7 +53,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-
+        Shelf shelf = other.gameObject.GetComponent<Shelf>(); 
         if (gameManager.collectibles.Contains(other.gameObject))
         {
             Debug.Log("Player bumped into: " + other.gameObject.name);
@@ -61,7 +61,7 @@ public class PlayerMovementScript : MonoBehaviour
 
 
             //targets the shelf that was collided with
-            Shelf shelf = other.gameObject.GetComponent<Shelf>(); 
+            // Shelf shelf = other.gameObject.GetComponent<Shelf>(); 
             shelf.DisableIcon();
             shelf.BrokenSprite();
 
@@ -89,6 +89,15 @@ public class PlayerMovementScript : MonoBehaviour
 
             Bump.Play();
             Debug.Log(" Play Sound ");
+
+        }
+        //Should only enter statement in splitscreen multiplayer mode
+        if (!shelf.GetIsItemNeeded() && !shelf.GetIsSpriteBroken())
+        {
+            shelf.DisableIcon();
+            shelf.BrokenSprite();
+
+            BounceEffect(other);
 
         }
     }

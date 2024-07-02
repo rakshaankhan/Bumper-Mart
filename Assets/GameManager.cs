@@ -35,9 +35,11 @@ public class GameManager : MonoBehaviour
         {
             onGameEnd = new UnityEvent();
         }
-
-        allItemsCollectedText.enabled = false;
-
+        //checks if allItemsCollectedText exist
+        if(allItemsCollectedText != null)
+        {
+            allItemsCollectedText.enabled = false;
+        }
     }
 
     // Check if all items are collected
